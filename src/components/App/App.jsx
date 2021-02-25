@@ -1,6 +1,8 @@
 import axios from 'axios';
 import './App.css';
+import AdminPage from '../AdminPage/AdminPage'
 import React, { useState, useEffect } from 'react';
+
 
 function App() {
 
