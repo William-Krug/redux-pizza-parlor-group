@@ -6,7 +6,16 @@ import PizzaItem from '../PizzaItem/PizzaItem';
 
 /**
  * Function renders a list of all pizza objects in the
- * Redux store
+ * Redux store.
+ *
+ * Each pizza object looks like:
+ * {
+ *  id:
+ *  name:
+ *  description:
+ *  price:
+ *  image_path:
+ * }
  */
 function PizzaList() {
   /* get list of pizzas from redux store */
