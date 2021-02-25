@@ -1,6 +1,7 @@
 import axios from 'axios';
 import './App.css';
 import AdminPage from '../AdminPage/AdminPage'
+import Header from '../Header/Header'
 import React, { useState, useEffect } from 'react';
 
 
@@ -27,13 +28,7 @@ function App() {
 
   return (
     <div className='App'>
-      <header className='App-header'>
-        <h1 className='App-title'>Prime Pizza</h1>
-      </header>
-  
-      <img src='images/pizza_photo.png' />
-      <p>Pizza is great.</p>
-  
+      <Header />
     </div>
   );
 }
