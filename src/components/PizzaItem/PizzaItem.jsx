@@ -8,17 +8,13 @@ function PizzaItem({ pizza }) {
   const dispatch = useDispatch();
   const [isAddVisible, setIsAddVisible] = useState(true);
 
-  /* function for button conditional rendering */
-  const buttonSwap = () => {
-    setIsAddVisible(~isAddVisible);
-  };
-
   /* handle ADD */
   const addPizzaToOrder = () => {
     dispatch({
       type: 'ADD_TO_ORDER',
       payload: pizza,
     });
+    setIsAddVisible(!isAddVisible);
   };
 
   /* handle REMOVE */
@@ -27,6 +23,7 @@ function PizzaItem({ pizza }) {
       type: 'REMOVE_FROM_ORDER',
       payload: pizza.id,
     });
+    setIsAddVisible(!isAddVisible);
   };
 
   return (
