@@ -8,7 +8,7 @@ import { createStore, combineReducers } from 'redux';
 import { Provider } from 'react-redux'
 
 // Create store
-cost storeInstance = createStore(
+const storeInstance = createStore(
   combineReducers({
 
   })
