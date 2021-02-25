@@ -1,6 +1,7 @@
 function CustomerInformation() {
 
   return(
+    
     //pull in Header component with total price
 
 
