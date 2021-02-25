@@ -3,6 +3,8 @@ import './App.css';
 import AdminPage from '../AdminPage/AdminPage'
 import Header from '../Header/Header'
 import React, { useState, useEffect } from 'react';
+import { HashRouter as Router, Route, Link, useHistory } from 'react-router-dom';
+
 
 
 function App() {
@@ -28,7 +30,24 @@ function App() {
 
   return (
     <div className='App'>
+
       <Header />
+
+    <Router>
+      <Route exact path="/">
+        <PizzaList />
+      </Route>
+      <Route path="/customerInfo">
+
+      </Route>
+      <Route path="/checkout">
+
+      </Route>
+      <Route path="/admin">
+        <AdminPage />
+      </Route>
+    </Router>
+
     </div>
   );
 }
