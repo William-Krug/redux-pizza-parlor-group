@@ -7,12 +7,19 @@ import App from './components/App/App';
 import { createStore, combineReducers } from 'redux';
 import { Provider } from 'react-redux'
 
+const pizzaListReducer = (state =[], action) => {
+  if (action.type === 'GET_PIZZA_LIST') {
+    return action.payload
+  }
+  return state
+} // end pizzaListReducer
+
 // Create store
 const storeInstance = createStore(
   combineReducers({
-
+    pizzaListReducer
   })
-);
+); // end store
 
 ReactDOM.render(
 <Provider store={storeInstance}>
