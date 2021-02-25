@@ -52,7 +52,7 @@ function PizzaItem({ pizza }) {
       <img
         src={pizza.image_path}
         alt={pizza.description}
-        width="200"
+        width="250"
         height="200"
       />
       <div className="pizza-description">
