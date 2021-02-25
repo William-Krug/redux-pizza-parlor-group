@@ -33,7 +33,7 @@ function CustomerInformation() {
     <input 
     type="radio"
     id="Delivery"
-    name="Pickup"
+    name="Delivery"
     value="Delivery"
     />
     <label for="Delivery">Delivery</label>
@@ -41,3 +41,5 @@ function CustomerInformation() {
 </>
   )
 }
+
+export default CustomerInformation;
