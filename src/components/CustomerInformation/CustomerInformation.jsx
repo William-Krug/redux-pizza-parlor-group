@@ -23,12 +23,19 @@ function CustomerInformation() {
     />
     <input 
     type="radio"
+    id="Pickup"
+    name="Pickup"
     value="Pickup"
     />
+    <label for="Pickup">Pickup</label><br>
+
     <input 
     type="radio"
+    id="Delivery"
+    name="Pickup"
     value="Delivery"
     />
+    <label for="Delivery">Delivery</label>
 
 </>
   )
