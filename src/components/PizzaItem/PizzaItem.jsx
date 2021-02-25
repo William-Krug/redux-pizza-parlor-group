@@ -1,4 +1,11 @@
+/* Import needed libraries */
+import { useSelector, useDispatch } from 'react-redux';
+
+/* Import css */
+import './PizzaItem.css';
+
 function PizzaItem({ pizza }) {
+  const dispatch = useDispatch();
   /* function for button conditional rendering */
   const buttonSwap = () => {};
 
@@ -19,7 +26,7 @@ function PizzaItem({ pizza }) {
         <p>{pizza.description}</p>
         <p className="pizza-price">${pizza.price}</p>
       </div>
-      <div onClick={buttonSwap}>ADD/REMOVE</div>
+      <div onClick={buttonSwap}>Add/Remove</div>
     </div>
   );
 }
