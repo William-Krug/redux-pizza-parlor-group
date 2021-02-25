@@ -10,3 +10,6 @@ const checkout = () => {
     console.log(err, "error")
   })
 }
+
+
+export default checkout
