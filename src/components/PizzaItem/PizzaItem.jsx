@@ -6,12 +6,28 @@ import './PizzaItem.css';
 
 function PizzaItem({ pizza }) {
   const dispatch = useDispatch();
+  const [isAddVisible, setIsAddVisible] = useState(true);
+
   /* function for button conditional rendering */
-  const buttonSwap = () => {};
+  const buttonSwap = () => {
+    setIsAddVisible(~isAddVisible);
+  };
 
   /* handle ADD */
+  const addPizzaToOrder = () => {
+    dispatch({
+      type: 'ADD_TO_ORDER',
+      payload: pizza,
+    });
+  };
 
   /* handle REMOVE */
+  const removePizzaFromOrder = () => {
+    dispatch({
+      type: 'REMOVE_FROM_ORDER',
+      payload: pizza.id,
+    });
+  };
 
   return (
     <div className="pizza-item">
@@ -26,7 +42,15 @@ function PizzaItem({ pizza }) {
         <p>{pizza.description}</p>
         <p className="pizza-price">${pizza.price}</p>
       </div>
-      <div onClick={buttonSwap}>Add/Remove</div>
+      {isAddVisible ? (
+        <div className="add-remove" onClick={addPizzaToOrder}>
+          <h4>Add</h4>
+        </div>
+      ) : (
+        <div className="add-remove" onClick={removePizzaFromOrder}>
+          <h4>Remove</h4>
+        </div>
+      )}
     </div>
   );
 }

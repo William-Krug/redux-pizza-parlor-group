@@ -6,15 +6,15 @@ import PizzaItem from '../PizzaItem/PizzaItem';
 
 function PizzaList() {
   /* get list of pizzas from redux store */
-  const pizzaList = useSelector((storeInstance) => {
-    return storeInstance.pizzaList;
+  const pizzaListReducer = useSelector((storeInstance) => {
+    return storeInstance.pizzaListReducer;
   });
 
   return (
     <div>
       <h2>Step 1: Select Your Pizza(s)</h2>
       <div className="pizza-list">
-        {pizzaList.map((pizza) => {
+        {pizzaListReducer.map((pizza) => {
           return <PizzaItem key={pizza.id} pizza={pizza} />;
         })}
       </div>
