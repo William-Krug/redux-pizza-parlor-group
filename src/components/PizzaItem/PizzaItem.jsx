@@ -1,9 +1,30 @@
 /* Import needed libraries */
-import { useSelector, useDispatch } from 'react-redux';
+import { useState } from 'react';
+import { useDispatch } from 'react-redux';
 
 /* Import css */
 import './PizzaItem.css';
 
+/**
+ * Function renders a description of each pizza object
+ * passed to it.
+ *
+ * When "Add" is clicked, the selected pizza is added
+ * to the shopping cart.
+ *
+ * When "Remove" is clicked, the selected pizza is
+ * removed from the shopping cart.
+ *
+ * pizza object looks like:
+ * {
+ *  id:
+ *  name:
+ *  description:
+ *  price:
+ *  image_path:
+ * }
+ * @param {object} pizza
+ */
 function PizzaItem({ pizza }) {
   const dispatch = useDispatch();
   const [isAddVisible, setIsAddVisible] = useState(true);

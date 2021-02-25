@@ -4,9 +4,13 @@ import { useSelector } from 'react-redux';
 /* Import needed components */
 import PizzaItem from '../PizzaItem/PizzaItem';
 
+/**
+ * Function renders a list of all pizza objects in the
+ * Redux store
+ */
 function PizzaList() {
   /* get list of pizzas from redux store */
-  const pizzaListReducer = useSelector((storeInstance) => {
+  const pizzaList = useSelector((storeInstance) => {
     return storeInstance.pizzaListReducer;
   });
 
@@ -14,7 +18,7 @@ function PizzaList() {
     <div>
       <h2>Step 1: Select Your Pizza(s)</h2>
       <div className="pizza-list">
-        {pizzaListReducer.map((pizza) => {
+        {pizzaList.map((pizza) => {
           return <PizzaItem key={pizza.id} pizza={pizza} />;
         })}
       </div>

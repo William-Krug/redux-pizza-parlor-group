@@ -31,6 +31,7 @@ const pizzaOrderReducer = (state = [], action) => {
 const storeInstance = createStore(
   combineReducers({
     pizzaListReducer,
+    pizzaOrderReducer,
   })
 ); // end store
 
