@@ -37,7 +37,7 @@ function App() {
       <p>Pizza is great.</p>
 
     <Router>
-      <Route path="/">
+      <Route exact path="/">
         <PizzaList />
       </Route>
       <Route path="/customerInfo">
