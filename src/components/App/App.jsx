@@ -6,8 +6,6 @@ import React, { useState, useEffect } from 'react';
 
 function App() {
 
-  const [pizzaList, setPizzaList] = useState([]);
-
   useEffect(() => {
     console.log('in useEffect');
     getPizzaList();
