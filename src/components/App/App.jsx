@@ -2,6 +2,8 @@ import axios from 'axios';
 import './App.css';
 import AdminPage from '../AdminPage/AdminPage'
 import React, { useState, useEffect } from 'react';
+import { HashRouter as Router, Route, Link, useHistory } from 'react-router-dom';
+
 
 
 function App() {
@@ -33,6 +35,21 @@ function App() {
   
       <img src='images/pizza_photo.png' />
       <p>Pizza is great.</p>
+
+    <Router>
+      <Route path="/home">
+        <PizzaList />
+      </Route>
+      <Route path="/customerInfo">
+
+      </Route>
+      <Route path="/checkout">
+
+      </Route>
+      <Route path="/admin">
+        <AdminPage />
+      </Route>
+    </Router>
   
     </div>
   );
