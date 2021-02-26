@@ -17,6 +17,7 @@ function CustomerInformation() {
     name: '',
     street: '',
     city: '',
+    state: '',
     zip: '',
     type: '',
   });
