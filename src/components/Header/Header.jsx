@@ -19,7 +19,7 @@ function Header() {
   return (
     <header className='App-header'>
       <h1 className='App-title'>Prime Pizza</h1>
-      <div>est. 2021 <span>Total: {totalCost}</span></div>
+      <div>est. 2021 <span>Total: {totalCost.toFixed(2)}</span></div>
       
 
       

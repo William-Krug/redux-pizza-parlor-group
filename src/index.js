@@ -24,6 +24,8 @@ const pizzaOrderReducer = (state = [], action) => {
       return state.filter((pizza) => {
         return pizza.id !== pizzaIdToRemove;
       });
+    case 'CLEAR_REDUCERS':
+      return action.payload;
     default:
       return state;
   }
@@ -34,10 +36,13 @@ const customerInformation = (state = [], action) => {
   switch (action.type) {
     case 'ADD_NEW_CUSTOMER':
       return [...state, action.payload];
+    case 'CLEAR_REDUCERS':
+      return action.payload;
     default:
       return state;
   }
 } // end customerInformation
+
 
 // Create store
 const storeInstance = createStore(
