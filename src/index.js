@@ -21,7 +21,6 @@ const pizzaOrderReducer = (state = [], action) => {
       return [...state, action.payload];
     case 'REMOVE_FROM_ORDER':
       const pizzaIdToRemove = action.payload;
-
       return state.filter((pizza) => {
         return pizza.id !== pizzaIdToRemove;
       });
