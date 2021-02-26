@@ -1,0 +1,23 @@
+.pizza-item {
+  display: inline-block;
+  width: 250px;
+  height: 450px;
+  margin: 10px;
+}
+
+.pizza-description {
+  background-color: #ed2929;
+  width: 250px;
+  height: 200px;
+}
+
+.pizza-price {
+  text-align: right;
+}
+
+.add-remove {
+  text-align: center;
+  width: 250px;
+  height: 50px;
+  border: 1px solid #000000;
+}

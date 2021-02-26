@@ -1,36 +1,47 @@
 import axios from 'axios';
 import './App.css';
+
 import AdminPage from '../AdminPage/AdminPage'
 import Header from '../Header/Header'
+
 import React, { useState, useEffect } from 'react';
-import { HashRouter as Router, Route, Link, useHistory } from 'react-router-dom';
+import {
+  HashRouter as Router,
+  Route,
+  Link,
+  useHistory,
+} from 'react-router-dom';
+import { useDispatch } from 'react-redux';
 
-
+import PizzaList from '../PizzaList/PizzaList';
 
 function App() {
-
   useEffect(() => {
     console.log('in useEffect');
     getPizzaList();
   }, []);
 
+  const dispatch = useDispatch();
+
   const getPizzaList = () => {
-    axios.get('/api/pizza')
+    axios
+      .get('/api/pizza')
       .then((res) => {
-        console.log('Successful GET', res);
+        console.log('Successful AXIOS GET', res);
         dispatch({
           type: 'GET_PIZZA_LIST',
-          payload: res.data
-        })
+          payload: res.data,
+        });
       })
       .catch((err) => {
-        console.log('Error in GET');
-      })
-  }
+        console.log('Error in AXIOS GET');
+      });
+  };
 
 
 
   return (
+
     <div className='App'>
 
       <Header />

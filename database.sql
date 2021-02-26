@@ -1,3 +1,7 @@
+-- Drop Table
+DROP TABLE IF EXISTS "pizza";
+
+-- Create Table
 CREATE TABLE "pizza" (
 	"id" SERIAL PRIMARY KEY,
 	"name" VARCHAR(100) NOT NULL,
@@ -6,6 +10,7 @@ CREATE TABLE "pizza" (
 	"image_path" VARCHAR(1000) NOT NULL
 );
 
+-- Test data
 INSERT INTO "pizza" ("name", "description", "price", "image_path")
 VALUES ('Tomato Soup','If you like pizza, but you hate the toppings, the cheese, and the crust, you''ll love this!',12.99,'images/pizza_photo.png'),
 ('Onomatopizza','We start with a WHOMP of dough, SPLAT some marinara on it, PLOP enough cheese on there to make a mouse PEEP. Top it off with some SIZZLING bacon, and BOOM there it is! We guarantee you''ll SMACK your lips.',14.99,'images/pizza_photo.png'),
@@ -15,17 +20,25 @@ VALUES ('Tomato Soup','If you like pizza, but you hate the toppings, the cheese,
 ('Bad Date','Garlic, Onion and Pepperoni.',24.99,'images/pizza_photo.png'),
 ('Another Little Pizza My Heart', 'Cheese Pizza. Personal size only.', 5.99,'images/pizza_photo.png');
 
+-- Drop Table
+DROP TABLE IF EXISTS "orders";
+
+-- Create Table
 CREATE TABLE "orders" (
 	"id" SERIAL PRIMARY KEY,
 	"customer_name" VARCHAR (1000) NOT NULL,
 	"street_address" VARCHAR(1000) NOT NULL,
 	"city" VARCHAR(1000) NOT NULL,
 	"zip" VARCHAR(20) NOT NULL,
-	"type" VARCHAR(100) NOT NULL,
+	"type" VARCHAR(100) NOT NULL,  -- Pickup vs Delivery
 	"total" NUMERIC (20, 2) NOT NULL,
-	"time" TIMESTAMP DEFAULT NOW() NOT NULL
+	"time" TIMESTAMP DEFAULT NOW() NOT NULL  -- Checkout click
 );
 
+-- Drop Table
+DROP TABLE IF EXISTS "line_item";
+
+-- Create Table
 CREATE TABLE "line_item" (
 	"id" SERIAL PRIMARY KEY,
 	"order_id" INT REFERENCES "orders" ON DELETE CASCADE,
