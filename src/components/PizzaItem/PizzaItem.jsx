@@ -52,20 +52,23 @@ function PizzaItem({ pizza }) {
       <img
         src={pizza.image_path}
         alt={pizza.description}
-        width="250"
+        width="300"
         height="200"
+        className="no-margin"
       />
-      <div className="pizza-description">
-        <h3>{pizza.name}</h3>
+      <div className="pizza-description no-margin">
+        <h3 className="no-margin">{pizza.name}</h3>
         <p>{pizza.description}</p>
-        <p className="pizza-price">${pizza.price}</p>
+      </div>
+      <div className="pizza-price no-margin">
+        <p>${pizza.price}</p>
       </div>
       {isAddVisible ? (
-        <div className="add-remove" onClick={addPizzaToOrder}>
+        <div className="add-remove no-margin" onClick={addPizzaToOrder}>
           <h4>Add</h4>
         </div>
       ) : (
-        <div className="add-remove" onClick={removePizzaFromOrder}>
+        <div className="add-remove no-margin" onClick={removePizzaFromOrder}>
           <h4>Remove</h4>
         </div>
       )}
