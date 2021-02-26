@@ -29,7 +29,13 @@ const pizzaOrderReducer = (state = [], action) => {
 }; // end pizzaOrderReducer
 
 const customerInformation = (state = [], action) => {
-  return state;
+  console.log("payload", action.payload );
+  switch (action.type) {
+    case 'ADD_NEW_CUSTOMER':
+      return [...state, action.payload];
+    default:
+      return state;
+  }
 } // end customerInformation
 
 // Create store
