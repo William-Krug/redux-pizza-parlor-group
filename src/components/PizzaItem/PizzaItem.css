@@ -1,7 +1,8 @@
 .pizza-item {
   display: inline-block;
   width: 250px;
-  height: 500px;
+  height: 450px;
+  margin: 10px;
 }
 
 .pizza-description {
@@ -17,5 +18,6 @@
 .add-remove {
   text-align: center;
   width: 250px;
-  height: 100px;
+  height: 50px;
+  border: 1px solid #000000;
 }
