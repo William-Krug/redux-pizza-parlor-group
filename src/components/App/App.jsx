@@ -1,39 +1,59 @@
 import axios from 'axios';
 import './App.css';
-import AdminPage from '../AdminPage/AdminPage'
+import AdminPage from '../AdminPage/AdminPage';
 import React, { useState, useEffect } from 'react';
+import {
+  HashRouter as Router,
+  Route,
+  Link,
+  useHistory,
+} from 'react-router-dom';
+import { useDispatch } from 'react-redux';
 
+import PizzaList from '../PizzaList/PizzaList';
 
 function App() {
-
   useEffect(() => {
     console.log('in useEffect');
     getPizzaList();
   }, []);
 
+  const dispatch = useDispatch();
+
   const getPizzaList = () => {
-    axios.get('/api/pizza')
+    axios
+      .get('/api/pizza')
       .then((res) => {
-        console.log('Successful GET', res);
+        console.log('Successful AXIOS GET', res);
         dispatch({
           type: 'GET_PIZZA_LIST',
-          payload: res.data
-        })
+          payload: res.data,
+        });
       })
       .catch((err) => {
-        console.log('Error in GET');
-      })
-  }
+        console.log('Error in AXIOS GET');
+      });
+  };
 
   return (
-    <div className='App'>
-      <header className='App-header'>
-        <h1 className='App-title'>Prime Pizza</h1>
+    <div className="App">
+      <header className="App-header">
+        <h1 className="App-title">Prime Pizza</h1>
       </header>
-  
-      <img src='images/pizza_photo.png' />
+
+      <img src="images/pizza_photo.png" />
       <p>Pizza is great.</p>
-  
+
+      <Router>
+        <Route exact path="/">
+          <PizzaList />
+        </Route>
+        <Route path="/customerInfo"></Route>
+        <Route path="/checkout"></Route>
+        <Route path="/admin">
+          <AdminPage />
+        </Route>
+      </Router>
     </div>
   );
 }

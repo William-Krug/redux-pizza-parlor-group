@@ -24,7 +24,7 @@ function PizzaList() {
   });
 
   return (
-    <div>
+    <div className="pizz-list-container">
       <h2>Step 1: Select Your Pizza(s)</h2>
       <div className="pizza-list">
         {pizzaList.map((pizza) => {
