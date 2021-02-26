@@ -20,8 +20,9 @@ const pizzaOrderReducer = (state = [], action) => {
     case 'ADD_TO_ORDER':
       return [...state, action.payload];
     case 'REMOVE_FROM_ORDER':
+      const pizzaIdToRemove = action.payload;
       return state.filter((pizza) => {
-        pizza.id !== action.payload;
+        return pizza.id !== pizzaIdToRemove;
       });
     default:
       return state;
@@ -35,7 +36,7 @@ const storeInstance = createStore(
     pizzaOrderReducer,
   }),
   // Redux logger!
-  applyMiddleware(logger)  
+  applyMiddleware(logger)
 ); // end store
 
 ReactDOM.render(
