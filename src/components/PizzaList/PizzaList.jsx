@@ -1,5 +1,6 @@
 /* Import needed libraries */
 import { useSelector } from 'react-redux';
+import { useHistory } from 'react-router-dom';
 
 /* Import needed components */
 import PizzaItem from '../PizzaItem/PizzaItem';
@@ -18,6 +19,8 @@ import PizzaItem from '../PizzaItem/PizzaItem';
  * }
  */
 function PizzaList() {
+  const history = useHistory();
+
   /* get list of pizzas from redux store */
   const pizzaList = useSelector((storeInstance) => {
     return storeInstance.pizzaListReducer;
@@ -31,6 +34,14 @@ function PizzaList() {
           return <PizzaItem key={pizza.id} pizza={pizza} />;
         })}
       </div>
+      <button
+        className="next-button"
+        onClick={() => {
+          history.push('/customerInfo');
+        }}
+      >
+        NEXT
+      </button>
     </div>
   );
 }
