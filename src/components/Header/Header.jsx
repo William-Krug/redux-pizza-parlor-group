@@ -19,12 +19,12 @@ function Header() {
   return (
     <header className='App-header'>
       <h1 className='App-title'>Prime Pizza</h1>
-      <p>estd. 2021</p>
-      <div>Total: {totalCost}</div>
+      <div>est. 2021 <span>Total: {totalCost}</span></div>
+      
+
+      
     </header>
   )
 }
 
 export default Header;
-
-// pushing to master
