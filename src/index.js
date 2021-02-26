@@ -28,11 +28,16 @@ const pizzaOrderReducer = (state = [], action) => {
   }
 }; // end pizzaOrderReducer
 
+const customerInformation = (state = [], action) => {
+  return state;
+} // end customerInformation
+
 // Create store
 const storeInstance = createStore(
   combineReducers({
     pizzaListReducer,
     pizzaOrderReducer,
+    customerInformation,
   }),
   // Redux logger!
   applyMiddleware(logger)  

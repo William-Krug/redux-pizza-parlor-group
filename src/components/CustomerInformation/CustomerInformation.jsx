@@ -1,9 +1,15 @@
+import { HashRouter as Router, Route, Link, useHistory } from 'react-router-dom';
+
 function CustomerInformation() {
+  const history = useHistory();
+
+  const onClick = () => {
+    history.push('/checkout')
+  }
 
   return(
     
     //pull in Header component with total price
-
 
     <>
     <h2>Step 2: Customer Information</h2>
@@ -38,7 +44,9 @@ function CustomerInformation() {
     />
     <label for="Delivery">Delivery</label>
 
-</>
+    <button onClick={onClick}>Next</button>
+
+  </>
   )
 }
 
