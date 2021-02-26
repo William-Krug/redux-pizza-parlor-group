@@ -58,9 +58,6 @@ function CustomerInformation() {
 
 
   return (
-    
-    //pull in Header component with total price
-
     //TODO grab inputs 
     // Put in local state
     // Dispatch to customerInformation Reducer
