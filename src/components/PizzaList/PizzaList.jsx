@@ -34,14 +34,16 @@ function PizzaList() {
           return <PizzaItem key={pizza.id} pizza={pizza} />;
         })}
       </div>
-      <button
-        className="next-button"
-        onClick={() => {
-          history.push('/customerInfo');
-        }}
-      >
-        NEXT
-      </button>
+      <div className="button">
+        <button
+          className="next-button"
+          onClick={() => {
+            history.push('/customerInfo');
+          }}
+        >
+          NEXT
+        </button>
+      </div>
     </div>
   );
 }
