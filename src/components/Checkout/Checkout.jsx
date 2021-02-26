@@ -4,6 +4,8 @@ import { useHistory } from 'react-router-dom';
 import CheckoutOrderItem from '../CheckoutOrderItem/CheckoutOrderItem'
 import React, { useState } from 'react';
 
+import './Checkout.css';
+
 function Checkout() {
   const history = useHistory();
   const dispatch = useDispatch();
@@ -21,26 +23,28 @@ function Checkout() {
   const checkoutBtn = () => {
     console.log("check out Button");
     axios.post('/api/order', {
-      customer_name: customerInfo.name, 
-      street_address: customerInfo.street,
-      city: customerInfo.city,
-      zip: customerInfo.zip,      
-      type: customerInfo.type, 
-      total: orderInfo.price,
-      time: 'nothing', 
+      customer_name: customerInfo[0].name, 
+      street_address: customerInfo[0].street,
+      city: customerInfo[0].city,
+      zip: customerInfo[0].zip,      
+      type: customerInfo[0].type, 
+      total: orderInfo[0].price, 
+      pizzas: orderInfo[0],
     })
     .then((res) => {
       console.log("successful post", res);
-      dispatch({
+
+      history.push('/');//brings user back to page one
+      alert('Order placed!');
+            dispatch({
         type: 'CLEAR_REDUCERS',
         payload: []
       })//going back and clearing reducers
-      history.push('/');//brings user back to page one
-      alert('Order placed!');
     })
     .catch((err) => {
       console.log(err, "error")
     })
+    
   }
 
   return (
@@ -71,10 +75,11 @@ function Checkout() {
           <td>Cost</td>
         </tr>
       </thead>
+      <tbody>
         {orderInfo.map((pizza, i) => {
           return <CheckoutOrderItem key={i} pizza={pizza} />;
         })}
-      <tbody></tbody>
+      </tbody>
       <tfoot>
         <tr>
           <td></td>
@@ -85,11 +90,11 @@ function Checkout() {
 
     
     
-    {/*
+    
     <footer>
-      <button onClick={() => checkoutBtn}>Checkout</button>
+      <button onClick={checkoutBtn}>Checkout</button>
     </footer>
-    */}
+   
     </>
   )
 
